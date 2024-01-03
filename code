@@ -1,0 +1,17 @@
+from turtle import title
+
+from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
+from webdriver_manager.chrome import ChromeDriverManager
+from time import sleep
+from selenium.webdriver.common.by import By
+driver_path=ChromeDriverManager().install()
+
+browser= webdriver.Chrome(service=Service(driver_path))
+
+browser.get('https://www.google.com')
+browser.find_element(By.NAME, 'q').click()
+browser.find_element(By.NAME, 'q').send_keys('Morocco')
+browser.find_element(By.NAME, 'btnK').click()
+
+sleep(10)
